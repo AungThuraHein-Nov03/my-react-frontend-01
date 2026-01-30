@@ -7,7 +7,7 @@ export function Items() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
-  const PAGE_SIZE = 5;
+  const PAGE_SIZE = 10;
   
   const itemNameRef = useRef();
   const itemCategoryRef = useRef();
