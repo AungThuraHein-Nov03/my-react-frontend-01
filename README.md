@@ -1,16 +1,38 @@
-# React + Vite
+# CSX4107 - React Frontend (Week 09)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the client-side part of the project. It's a React app using Vite (because it's faster than CRA). It talks to the Next.js backend to display the shop items and manage users.
 
-Currently, two official plugins are available:
+## Important Details
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Auth**: We're using a `UserContext` to wrap the app so we know if the user is logged in or not.
+-   **Routing**: Using `react-router-dom`. Some routes like `/profile` are protected by the `RequireAuth` component. If you aren't logged in, it bounces you to login.
+-   **Styles**: Just regular CSS files for now.
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1.  Go into this folder and install the node modules:
+    ```bash
+    npm install
+    ```
 
-## Expanding the ESLint configuration
+2.  Make sure the backend is running on port 3000.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3.  Set up the environment variable so it knows where to fetch data:
+    Create a `.env` file:
+    ```env
+    VITE_API_URL=http://localhost:3000
+    ```
+
+4.  Start it up:
+    ```bash
+    npm run dev
+    ```
+    Open the link it gives you (probably localhost:5173).
+
+## The Files
+
+-   `src/context/UserProvider.jsx`: This is where the login logic actually happens (fetching `/api/user/login`).
+-   `src/middleware/RequireAuth.jsx`: Checks the context; if `!isLoggedIn`, returns `<Navigate to="/login" />`.
+-   `src/components/`: The UI parts. `UseList`/`UserEdit` are for admins to manage accounts.
+
+
