@@ -1,6 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Items } from "./components/item.jsx";
 import { ItemEdit } from "./components/itemEdit.jsx";
+import { UserList } from "./components/UserList.jsx";
+import { UserEdit } from "./components/UserEdit.jsx";
 import TestApi from "./components/TestApi.jsx";
 import RequireAuth from "./middleware/RequireAuth";
 import Profile from "./components/Profile";
@@ -17,6 +19,24 @@ function App() {
         <Route path="/items/:id" element={<ItemEdit />} />
         <Route path="/test_api" element={<TestApi />} />
         <Route path="/login" element={<Login />} />
+        
+        <Route
+          path="/users"
+          element={
+            <RequireAuth>
+              <UserList />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/users/:id"
+          element={
+            <RequireAuth>
+              <UserEdit />
+            </RequireAuth>
+          }
+        />
+
         <Route
           path="/profile"
           element={
