@@ -1,4 +1,4 @@
-# CSX4107 - React Frontend (Week 09)
+# CSX4107 - React Frontend (Week 07 - Week 09)
 
 This is the client-side part of the project. It's a React app using Vite. It talks to the Next.js backend to display the shop items and manage users.
 
