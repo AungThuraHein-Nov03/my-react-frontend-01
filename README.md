@@ -33,6 +33,6 @@ This is the client-side part of the project. It's a React app using Vite. It tal
 
 -   `src/context/UserProvider.jsx`: This is where the login logic actually happens 
 -   `src/middleware/RequireAuth.jsx`: Checks the context; if `!isLoggedIn`, returns `<Navigate to="/login" />`.
--   `src/components/`: The UI parts. `UseList`/`UserEdit` are for admins to manage accounts.
+-   `src/components/`: The UI parts. `UseList`/`UserEdit` are for admins to manage accounts. `Profile` includes image upload.
 
 
