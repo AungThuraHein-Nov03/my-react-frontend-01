@@ -28,7 +28,7 @@ export function UserProvider({ children }) {
         credentials: "include",
       });
       if (result.status != 200) {
-        console.log("Login Exception: ", error);
+        console.log("Login Exception: Status", result.status);
         return false;
       } else {
         console.log("result: ", result);
