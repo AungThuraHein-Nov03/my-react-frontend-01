@@ -35,6 +35,7 @@ export function UserProvider({ children }) {
         const newUser = { isLoggedIn: true, name: "", email: email };
         setUser(newUser);
         localStorage.setItem("session", JSON.stringify(newUser));
+        return true;
       }
     } catch (error) {
       console.log("Login Exception: ", error);
