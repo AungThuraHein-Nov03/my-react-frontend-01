@@ -28,14 +28,13 @@ export function UserProvider({ children }) {
         credentials: "include",
       });
       if (result.status != 200) {
-        console.log("Login Exception: ", await result.text());
+        console.log("Login Exception: ", error);
         return false;
       } else {
         console.log("result: ", result);
         const newUser = { isLoggedIn: true, name: "", email: email };
         setUser(newUser);
         localStorage.setItem("session", JSON.stringify(newUser));
-        return true;
       }
     } catch (error) {
       console.log("Login Exception: ", error);
